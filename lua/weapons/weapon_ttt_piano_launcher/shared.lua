@@ -20,7 +20,7 @@ if SERVER then
 	SWEP.HoldType           = "pistol"
 	 
 elseif CLIENT then
-    SWEP.PrintName          = "Piano launcher"
+    SWEP.PrintName          = "Piano Launcher"
     SWEP.Slot               = 6
     SWEP.SlotPos            = 3
     SWEP.DrawCrosshair = false
@@ -32,19 +32,23 @@ elseif CLIENT then
     
    SWEP.Icon = "materials/piano_launcher/icon_piano.png"
 end
- 
-SWEP.Base                      = "weapon_tttbase"
-SWEP.Spawnable                 = false
-SWEP.AdminSpawnable            = true
-SWEP.AdminOnly			= true
+
+-- General settings
+SWEP.Spawnable = true
+SWEP.AdminOnly = false
+SWEP.PrintName = "Piano Launcher"
+SWEP.Base = "weapon_tttbase" -- Set to weapon_tttbase when not testing
+SWEP.Author = "RaptureAwaits"
 SWEP.ViewModel                 = "models/weapons/v_pist_usp.mdl"
 SWEP.WorldModel             = "models/weapons/w_pist_usp.mdl"
  
+-- TTT Settings
 SWEP.NoSights = true
 SWEP.Kind = WEAPON_EQUIP1
 SWEP.CanBuy = {ROLE_TRAITOR}
 SWEP.LimitedStock = true
 
+-- Gun Behaviour
 SWEP.Primary.ClipSize        = 1
 SWEP.Primary.DefaultClip    = 1
 SWEP.Primary.Automatic        = false
@@ -89,7 +93,7 @@ function SWEP:SecondaryAttack()
 	local hit_tr = util.TraceLine({ -- Trace that travels directly upwards from the player trace hit position, used to determine if play_tr.HitPos is below open sky
 		start = play_tr.HitPos,
 		endpos = play_tr.HitPos + up_vect * 99999,
-		filter = play_tr.Ent -- Don't want to hit an entity with play_tr just to hit it again with hit_tr, as nothing would happen
+		filter = play_tr.Entity -- Don't want to hit an entity with play_tr just to hit it again with hit_tr, as nothing would happen
 	})
 	
 	if hit_tr.HitSky then -- If hit_tr hits the sky uninterrupted, our orbital piano strike can take place
