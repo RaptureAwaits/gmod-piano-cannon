@@ -1,33 +1,33 @@
 AddCSLuaFile()
 
 if SERVER then
-  
-   resource.AddFile("materials/piano_launcher/icon_piano.png")
-   resource.AddFile("models/fishy/furniture/piano.mdl")
-   resource.AddFile("models/fishy/furniture/piano.phy")
-   resource.AddFile("models/fishy/furniture/piano.vvd")
-   resource.AddFile("Sound/piano.mp3")
-   
+
+	resource.AddFile("materials/piano_launcher/icon_piano.png")
+	resource.AddFile("models/fishy/furniture/piano.mdl")
+	resource.AddFile("models/fishy/furniture/piano.phy")
+	resource.AddFile("models/fishy/furniture/piano.vvd")
+	resource.AddFile("sound/weapons/piano_launcher/piano.mp3")
+
 	sound.Add {
-	name="Piano_music",
-	channel=CHAN_STATIC,
-	volume=1,
-	level=100,
-	pitch=100,
-	sound="piano.mp3"
+		name = "Piano_music",
+		channel = CHAN_STATIC,
+		volume = 1,
+		level = 100,
+		pitch = 100,
+		sound = "weapons/piano_launcher/piano.mp3"
 	}
-     
-	SWEP.HoldType           = "pistol"
+		
+	SWEP.HoldType = "pistol"
 	 
 elseif CLIENT then
-    SWEP.PrintName          = "Piano Launcher"
-    SWEP.Slot               = 6
-    SWEP.SlotPos            = 3
+    SWEP.PrintName = "Piano Launcher"
+    SWEP.Slot = 6
+    SWEP.SlotPos = 3
     SWEP.DrawCrosshair = false
      
     SWEP.EquipMenuData = {
-      type = "Bard's Dream",
-      desc = "Launch a god damn piano at your plebian foes\nto teach them some much needed class."
+		type = "Bard's Dream",
+		desc = "Launch a god damn piano at your plebian foes \nto teach them some much needed class."
    }
     
    SWEP.Icon = "materials/piano_launcher/icon_piano.png"
@@ -37,10 +37,10 @@ end
 SWEP.Spawnable = true
 SWEP.AdminOnly = false
 SWEP.PrintName = "Piano Launcher"
-SWEP.Base = "weapon_tttbase" -- Set to weapon_tttbase when not testing
+SWEP.Base = "weapon_tttbase" -- weapon_base | weapon_tttbase
 SWEP.Author = "RaptureAwaits"
-SWEP.ViewModel                 = "models/weapons/v_pist_usp.mdl"
-SWEP.WorldModel             = "models/weapons/w_pist_usp.mdl"
+SWEP.ViewModel = "models/weapons/v_pist_usp.mdl"
+SWEP.WorldModel = "models/weapons/w_pist_usp.mdl"
  
 -- TTT Settings
 SWEP.NoSights = true
@@ -49,10 +49,10 @@ SWEP.CanBuy = {ROLE_TRAITOR}
 SWEP.LimitedStock = true
 
 -- Gun Behaviour
-SWEP.Primary.ClipSize        = 1
-SWEP.Primary.DefaultClip    = 1
-SWEP.Primary.Automatic        = false
-SWEP.Primary.Delay				= 0.2
+SWEP.Primary.ClipSize = 1
+SWEP.Primary.DefaultClip = 1
+SWEP.Primary.Automatic = false
+SWEP.Primary.Delay = 0.2
   
 local ShootSoundFire = Sound("Airboat.FireGunHeavy")
 local ShootSoundFail = Sound("WallHealth.Deny")
